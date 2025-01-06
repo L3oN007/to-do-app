@@ -35,15 +35,17 @@ export function TodoList() {
 		<div className='space-y-6'>
 			<AddTodo onAdd={handleAddTodo} />
 			{isLoading || isFetching ? (
-				<div className='space-y-4'>
-					{[1, 2, 3].map((index) => (
-						<div key={index} className='flex items-center space-x-4'>
-							<Skeleton className='h-6 w-6' />
-							<div className='space-y-2 flex-1'>
-								<Skeleton className='h-4 w-[60%]' />
-								<Skeleton className='h-3 w-[80%]' />
+				<div className='space-y-3'>
+					{[1, 2, 3, 4].map((index) => (
+						<div
+							key={index}
+							className='flex items-start space-x-4 rounded-lg border p-4'>
+							<Skeleton className='h-5 w-5 mt-0.5 rounded-sm' />
+							<div className='space-y-2.5 flex-1'>
+								<Skeleton className='h-5 w-[40%]' />
+								<Skeleton className='h-4 w-[65%]' />
 							</div>
-							<Skeleton className='h-8 w-8' />
+							<Skeleton className='h-7 w-7 rounded-md' />
 						</div>
 					))}
 				</div>
