@@ -9,7 +9,11 @@ import { ITodo } from '@/types/todo.type';
 export function useTodos() {
 	const queryClient = useQueryClient();
 
-	const { data: todos = [], isLoading } = useQuery<ITodo[]>({
+	const {
+		data: todos = [],
+		isLoading,
+		isFetching,
+	} = useQuery<ITodo[]>({
 		queryKey: ['todos'],
 		queryFn: () => api.get('/todos').then((res) => res.data),
 	});
@@ -41,6 +45,7 @@ export function useTodos() {
 	return {
 		todos,
 		isLoading,
+		isFetching,
 		addTodo: addTodoMutation.mutate,
 		updateTodo: updateTodoMutation.mutate,
 		deleteTodo: deleteTodoMutation.mutate,
