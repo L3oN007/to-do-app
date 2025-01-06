@@ -8,14 +8,10 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card';
+import { ITodo } from '@/types/todo.type';
 
 type TodoItemProps = {
-	todo: {
-		id: number;
-		title: string;
-		description: string;
-		completed: boolean;
-	};
+	todo: ITodo;
 	onToggle: () => void;
 	onDelete: () => void;
 };
