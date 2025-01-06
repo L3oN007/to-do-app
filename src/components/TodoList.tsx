@@ -7,14 +7,8 @@ import { useTodos } from '@/hooks/useTodos';
 import { ITodo } from '@/types/todo.type';
 
 export function TodoList() {
-	const {
-		todos,
-		isLoading,
-		isFetching,
-		addTodo,
-		updateTodo,
-		deleteTodo,
-	} = useTodos();
+	const { todos, isLoading, addTodo, updateTodo, deleteTodo } =
+		useTodos();
 
 	const handleAddTodo = (title: string, description: string) => {
 		addTodo({
@@ -34,7 +28,7 @@ export function TodoList() {
 	return (
 		<div className='space-y-6'>
 			<AddTodo onAdd={handleAddTodo} />
-			{isLoading || isFetching ? (
+			{isLoading ? (
 				<div className='space-y-3'>
 					{[1, 2, 3, 4].map((index) => (
 						<div
