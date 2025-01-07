@@ -41,7 +41,7 @@ export function useTodos() {
 
 			return { previousTodos };
 		},
-		onError: (err, newTodo, context) => {
+		onError: (_err, _newTodo, context) => {
 			// Rollback on error
 			queryClient.setQueryData(['todos'], context?.previousTodos);
 		},
@@ -67,7 +67,7 @@ export function useTodos() {
 
 			return { previousTodos };
 		},
-		onError: (err, updatedTodo, context) => {
+		onError: (_err, _updatedTodo, context) => {
 			queryClient.setQueryData(['todos'], context?.previousTodos);
 		},
 		onSettled: () => {
@@ -89,7 +89,7 @@ export function useTodos() {
 
 			return { previousTodos };
 		},
-		onError: (err, todoId, context) => {
+		onError: (_err, _todoId, context) => {
 			queryClient.setQueryData(['todos'], context?.previousTodos);
 		},
 		onSettled: () => {
